@@ -1,5 +1,6 @@
 package com.example.serverIntelliTestinh.repo.repoImpl;
 
+import com.example.serverIntelliTestinh.model.User;
 import com.example.serverIntelliTestinh.model.test.Test;
 import com.example.serverIntelliTestinh.repo.TestRepo;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -14,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class TestRepoImpl implements TestRepo {
-    private final String db = "C:\\Users\\bkmzo\\IdeaProjects\\serverIntelliTestinh\\src\\main\\resources\\Content\\Content.sys";
+    private final String db = "/home/iliya/IdeaProjects/serverIntelliTestinh/src/main/resources/Content/Content.sys";
     @Override
     public void add(Test newTest) throws IOException {
         String db = new BufferedReader(new FileReader(this.db)).lines().collect(Collectors.joining());
@@ -71,5 +72,13 @@ public class TestRepoImpl implements TestRepo {
         // Сериализуем новый ArrayList в формат JSON
         String newJson = mapper.writeValueAsString(newJsonArray);
 
+    }
+
+    @Override
+    public Test getAll() throws FileNotFoundException, JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        String db = new BufferedReader(new FileReader(this.db)).lines().collect(Collectors.joining());
+        Test test = mapper.readValue(db,Test.class);
+        return test;
     }
 }

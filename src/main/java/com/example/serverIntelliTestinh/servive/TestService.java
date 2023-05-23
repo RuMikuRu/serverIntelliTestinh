@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 public interface TestService {
     void addTest(Test newTest) throws IOException;
@@ -12,4 +13,6 @@ public interface TestService {
     void update(Test test, int id) throws IOException;
 
     void delete(int id) throws FileNotFoundException, JsonProcessingException;
+
+    Test getAll() throws FileNotFoundException, JsonProcessingException;
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/tests")
@@ -33,5 +34,10 @@ public class TestController {
     @DeleteMapping(value = "/delete", params = {"id"})
     public void deleteTest(@RequestParam("id") int id) throws FileNotFoundException, JsonProcessingException {
         service.delete(id);
+    }
+
+    @RequestMapping(path = "/all",method = RequestMethod.GET)
+    public ResponseEntity<Test> getAll() throws FileNotFoundException, JsonProcessingException {
+        return ResponseEntity.ok(service.getAll());
     }
 }
