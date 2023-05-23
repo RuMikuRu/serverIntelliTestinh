@@ -11,4 +11,6 @@ public interface UserRepo {
     User searchByLogin(String login) throws IOException;
 
     void update(User user, String login) throws IOException;
+
+    User[] getAll() throws FileNotFoundException, JsonProcessingException;
 }

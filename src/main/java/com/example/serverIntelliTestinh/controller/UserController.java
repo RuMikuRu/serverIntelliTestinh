@@ -2,13 +2,16 @@ package com.example.serverIntelliTestinh.controller;
 
 import com.example.serverIntelliTestinh.model.User;
 import com.example.serverIntelliTestinh.servive.UserService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -33,5 +36,10 @@ public class UserController {
     @PutMapping(value = "/update", params = {"login"})
     public void updateUser(@RequestBody User user, @RequestParam("login") String login) throws IOException {
         service.update(user, login);
+    }
+
+    @GetMapping(value = "/all")
+    public ResponseEntity<List<User>> getAll() throws FileNotFoundException, JsonProcessingException {
+        return ResponseEntity.ok(List.of(service.getAll()));
     }
 }

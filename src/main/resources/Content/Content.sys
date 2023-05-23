@@ -1,0 +1,25 @@
+{
+  "id": 0,
+  "question": {
+    "question1": {
+      "question": "What is the capital of France?",
+      "answer": [
+        "Paris",
+        "London",
+        "Madrid",
+        "Rome"
+      ],
+      "idTrueAnswer": 0
+    },
+    "question2": {
+      "question": "What is the highest mountain in the world?",
+      "answer": [
+        "Mount Everest",
+        "K2",
+        "Kangchenjunga",
+        "Lhotse"
+      ],
+      "idTrueAnswer": 0
+    }
+  }
+}

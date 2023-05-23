@@ -4,11 +4,11 @@ import com.example.serverIntelliTestinh.model.User;
 import com.example.serverIntelliTestinh.repo.UserRepo;
 import com.example.serverIntelliTestinh.repo.repoImpl.UserRepoImpl;
 import com.example.serverIntelliTestinh.servive.UserService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-import java.io.FileOutputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -45,5 +45,11 @@ public class UserServiceImpl implements UserService {
     public void update(User user, String login) throws IOException {
         UserRepo repo = new UserRepoImpl();
         repo.update(user, login);
+    }
+
+    @Override
+    public User[] getAll() throws FileNotFoundException, JsonProcessingException {
+        UserRepo repo = new UserRepoImpl();
+        return repo.getAll();
     }
 }
