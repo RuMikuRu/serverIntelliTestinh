@@ -20,6 +20,8 @@ public class User {
     private String icon;
     //private Role role;
 
+    private int countItogTest;
+
     public User(String login, String password, String firstName, String lastName, String patronymic, String birthday, int group, String secretQuestion, String answerOnQuestion, String email, String numberPhone, String icon) {
         this.login = login;
         this.password = password;
@@ -33,10 +35,17 @@ public class User {
         this.email = email;
         this.numberPhone = numberPhone;
         this.icon = icon;
-        //this.role = role;
+        this.countItogTest = 0;
+
+    //this.role = role;
     }
 
     public User(){}
+
+    public void addCountTest()
+    {
+        this.countItogTest++;
+    }
 
     public String getLogin() {
         return login;
@@ -132,6 +141,14 @@ public class User {
 
     public void setIcon(String icon) {
         this.icon = icon;
+    }
+
+    public int getCountItogTest() {
+        return countItogTest;
+    }
+
+    public void setCountItogTest(int countItogTest) {
+        this.countItogTest = countItogTest;
     }
 
 }

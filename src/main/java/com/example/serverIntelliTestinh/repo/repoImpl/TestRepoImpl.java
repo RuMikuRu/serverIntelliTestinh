@@ -9,9 +9,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class TestRepoImpl implements TestRepo {
@@ -35,42 +32,40 @@ public class TestRepoImpl implements TestRepo {
     public void update(Test test, int id) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         String db = new BufferedReader(new FileReader(this.db)).lines().collect(Collectors.joining());
-        JsonNode jsonNode = mapper.readTree(db);
-        ArrayNode jsonArray = (ArrayNode) jsonNode;
-        JsonNode testJson = mapper.convertValue(test, JsonNode.class);
+        Test existingTest = mapper.readValue(new File(this.db), Test.class);
 
-        Test[] tests = mapper.readValue(db,Test[].class);
-        List<Test> optionalTest = new java.util.ArrayList<>(Arrays.stream(tests).toList());
-        int index = 0;
-        for(int i=0;i< optionalTest.size();i++){
-            if(optionalTest.get(i).getId() == id){
-                index = i;
-            }
+        // Проверка, что идентификаторы совпадают
+        if (existingTest.getId() == id) {
+            // Обновление полей с переданным объектом test
+            existingTest.setQuestion(test.getQuestion());
+            // Запись обновленного объекта в JSON-файл
+            mapper.writeValue(new File("test.json"), existingTest);
         }
-        jsonArray.remove(index);
-        jsonArray.add(testJson);
-        String updatedJsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonNode);
-        BufferedWriter writer = new BufferedWriter(new FileWriter(this.db));
-        writer.write(updatedJsonString);
-        writer.close();
     }
 
     @Override
-    public void delete(int id) throws FileNotFoundException, JsonProcessingException {
+    public void delete(int id) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        String db = new BufferedReader(new FileReader(this.db)).lines().collect(Collectors.joining());
-        List<Test> jsonArray = mapper.readValue(db, ArrayList.class);
-        List<Object> newJsonArray = new ArrayList<>();
-        for (Object obj : jsonArray) {
-            // Пропускаем элемент, если его id совпадает с тем, который нужно удалить
-            if (obj instanceof java.util.Map && ((java.util.Map) obj).get("id") instanceof Integer && (Integer) ((java.util.Map) obj).get("id") == 222) {
-                continue;
-            }
-            newJsonArray.add(obj);
-        }
 
-        // Сериализуем новый ArrayList в формат JSON
-        String newJson = mapper.writeValueAsString(newJsonArray);
+        // Чтение существующего JSON-файла
+        Test[] tests = mapper.readValue(new File(this.db), Test[].class);
+
+        // Поиск объекта с переданным идентификатором и удаление из массива
+        for (int i = 0; i < tests.length; i++) {
+            if (tests[i].getId() == id) {
+                // Сдвигаем элементы массива для удаления
+                System.arraycopy(tests, i + 1, tests, i, tests.length - 1 - i);
+
+                // Обрезаем массив, исключая последний элемент
+                Test[] newTests = new Test[tests.length - 1];
+                System.arraycopy(tests, 0, newTests, 0, tests.length - 1);
+
+                // Запись обновленного массива в JSON-файл
+                mapper.writeValue(new File("tests.json"), newTests);
+
+                break;
+            }
+        }
 
     }
 

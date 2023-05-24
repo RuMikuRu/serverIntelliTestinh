@@ -12,7 +12,7 @@ public interface TestRepo {
 
     void update(Test test, int id) throws IOException;
 
-    void delete(int id) throws FileNotFoundException, JsonProcessingException;
+    void delete(int id) throws IOException;
 
     Test getAll() throws FileNotFoundException, JsonProcessingException;
 }
