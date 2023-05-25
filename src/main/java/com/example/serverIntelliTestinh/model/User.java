@@ -19,8 +19,9 @@ public class User {
     private String numberPhone;
     private String icon;
     //private Role role;
-
     private int countItogTest;
+
+    private boolean isBlocked;
 
     public User(String login, String password, String firstName, String lastName, String patronymic, String birthday, int group, String secretQuestion, String answerOnQuestion, String email, String numberPhone, String icon) {
         this.login = login;
@@ -36,7 +37,7 @@ public class User {
         this.numberPhone = numberPhone;
         this.icon = icon;
         this.countItogTest = 0;
-
+        this.isBlocked = false;
     //this.role = role;
     }
 
@@ -149,6 +150,14 @@ public class User {
 
     public void setCountItogTest(int countItogTest) {
         this.countItogTest = countItogTest;
+    }
+
+    public boolean isBlocked() {
+        return isBlocked;
+    }
+
+    public void setBlocked(boolean blocked) {
+        isBlocked = blocked;
     }
 
 }
