@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Controller
-@RequestMapping
+@RequestMapping("/alert")
 public class AlertController {
     private final AlertService service;
 
