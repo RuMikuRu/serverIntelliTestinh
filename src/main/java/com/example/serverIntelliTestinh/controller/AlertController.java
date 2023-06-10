@@ -1,20 +1,17 @@
 package com.example.serverIntelliTestinh.controller;
 
 import com.example.serverIntelliTestinh.model.Alert;
-import com.example.serverIntelliTestinh.model.User;
 import com.example.serverIntelliTestinh.servive.AlertService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 @Controller
 @RequestMapping("/alert")
@@ -31,8 +28,9 @@ public class AlertController {
         return ResponseEntity.ok(Arrays.asList(service.getAll()));
     }
 
-    @RequestMapping(path = "/add",method = RequestMethod.POST)
-    public void addAlert(@RequestBody Alert newAlert) throws IOException {
+    @RequestMapping(path = "/add",method = RequestMethod.POST, params = {"description"})
+    public void addAlert(@RequestParam("description") String description) throws IOException {
+        Alert newAlert = new Alert(new Random().nextInt(0, 1024), description);
         service.addAlert(newAlert);
     }
 }
