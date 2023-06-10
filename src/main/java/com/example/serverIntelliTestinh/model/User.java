@@ -17,13 +17,13 @@ public class User {
     private String answerOnQuestion;
     private String email;
     private String numberPhone;
-    private String icon;
+    //private String icon;
     //private Role role;
     private int countItogTest;
 
     private boolean isBlocked;
 
-    public User(String login, String password, String firstName, String lastName, String patronymic, String birthday, int group, String secretQuestion, String answerOnQuestion, String email, String numberPhone, String icon) {
+    public User(String login, String password, String firstName, String lastName, String patronymic, String birthday, int group, String secretQuestion, String answerOnQuestion, String email, String numberPhone) {
         this.login = login;
         this.password = password;
         this.firstName = firstName;
@@ -35,10 +35,10 @@ public class User {
         this.answerOnQuestion = answerOnQuestion;
         this.email = email;
         this.numberPhone = numberPhone;
-        this.icon = icon;
+        //this.icon = icon;
         this.countItogTest = 0;
         this.isBlocked = false;
-    //this.role = role;
+        //this.role = Role.USER;
     }
 
     public User(){}
@@ -136,13 +136,6 @@ public class User {
         this.numberPhone = numberPhone;
     }
 
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
 
     public int getCountItogTest() {
         return countItogTest;

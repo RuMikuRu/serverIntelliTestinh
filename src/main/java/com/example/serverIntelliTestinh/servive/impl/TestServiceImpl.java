@@ -26,7 +26,7 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
-    public void delete(int id) throws FileNotFoundException, JsonProcessingException {
+    public void delete(int id) throws IOException {
         TestRepo repo = new TestRepoImpl();
         repo.delete(id);
     }

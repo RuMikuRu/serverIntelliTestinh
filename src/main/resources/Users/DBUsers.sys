@@ -10,5 +10,20 @@
   "answerOnQuestion" : "sdfsfsfs",
   "email" : "fdsfsfs",
   "numberPhone" : "sdfsdfsd",
-  "icon" : "fsdfsdfs"
+  "countItogTest" : 0,
+  "blocked" : false
+}, {
+  "login" : "admin",
+  "password" : "root",
+  "firstName" : "iliya",
+  "lastName" : "orlov",
+  "patronymic" : "Vlad",
+  "birthday" : "04.07.2002",
+  "group" : 2,
+  "secretQuestion" : "123",
+  "answerOnQuestion" : "321",
+  "email" : "bkmz.or32@gmail.com",
+  "numberPhone" : "+79964242485",
+  "countItogTest" : 0,
+  "blocked" : false
 } ]

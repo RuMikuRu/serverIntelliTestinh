@@ -1,6 +1,5 @@
 package com.example.serverIntelliTestinh.controller;
 
-import com.example.serverIntelliTestinh.model.User;
 import com.example.serverIntelliTestinh.model.test.Test;
 import com.example.serverIntelliTestinh.servive.TestService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
 
 @Controller
 @RequestMapping("/tests")
@@ -32,7 +30,7 @@ public class TestController {
     }
 
     @DeleteMapping(value = "/delete", params = {"id"})
-    public void deleteTest(@RequestParam("id") int id) throws FileNotFoundException, JsonProcessingException {
+    public void deleteTest(@RequestParam("id") int id) throws IOException {
         service.delete(id);
     }
 

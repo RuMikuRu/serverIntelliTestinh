@@ -14,7 +14,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class UserRepoImpl implements UserRepo {
-    private final String db = "C:\\Users\\bkmzo\\IdeaProjects\\serverIntelliTestinh\\src\\main\\resources\\Users\\DBUsers.sys";
+    private final String db = "/home/iliya/IdeaProjects/serverIntelliTestinh/src/main/resources/Users/DBUsers.sys";
     @Override
     public void save(User user) throws IOException {
         String db = new BufferedReader(new FileReader(this.db)).lines().collect(Collectors.joining());
