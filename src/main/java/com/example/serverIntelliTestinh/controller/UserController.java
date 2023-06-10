@@ -33,6 +33,11 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
+    @PutMapping(value = "/blocked", params = {"login", "isBlocked"})
+    public void blockedUser(@RequestParam("login") String login, @RequestParam("isBlocked") boolean isBlocked) throws IOException {
+        service.isBlocked(login, isBlocked);
+    }
+
     @PutMapping(value = "/update", params = {"login"})
     public void updateUser(@RequestBody User user, @RequestParam("login") String login) throws IOException {
         service.update(user, login);

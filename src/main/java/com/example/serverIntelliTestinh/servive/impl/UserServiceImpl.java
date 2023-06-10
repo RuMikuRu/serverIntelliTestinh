@@ -52,4 +52,12 @@ public class UserServiceImpl implements UserService {
         UserRepo repo = new UserRepoImpl();
         return repo.getAll();
     }
+
+    @Override
+    public void isBlocked(String login, boolean isBlocked) throws IOException {
+        UserRepo repo = new UserRepoImpl();
+        User user = repo.searchByLogin(login);
+        user.setBlocked(isBlocked);
+        repo.update(user, login);
+    }
 }
