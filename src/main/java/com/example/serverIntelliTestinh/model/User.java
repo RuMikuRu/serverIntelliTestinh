@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashMap;
+
 
 public class User {
     private String login;
@@ -23,6 +25,8 @@ public class User {
 
     private boolean isBlocked;
 
+    HashMap<Integer, Integer> testIdToGrade;
+
     public User(String login, String password, String firstName, String lastName, String patronymic, String birthday, int group, String secretQuestion, String answerOnQuestion, String email, String numberPhone) {
         this.login = login;
         this.password = password;
@@ -39,9 +43,19 @@ public class User {
         this.countItogTest = 0;
         this.isBlocked = false;
         //this.role = Role.USER;
+
+
     }
 
     public User(){}
+
+    public HashMap<Integer, Integer> getTestIdToGrade() {
+        return testIdToGrade;
+    }
+
+    public void setGradeToTestId(HashMap<Integer, Integer> testIdToGrade) {
+        this.testIdToGrade = testIdToGrade;
+    }
 
     public void addCountTest()
     {

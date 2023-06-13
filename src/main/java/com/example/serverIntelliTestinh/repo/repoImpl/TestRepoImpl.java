@@ -35,7 +35,7 @@ public class TestRepoImpl implements TestRepo {
         Test existingTest = mapper.readValue(new File(this.db), Test.class);
 
         // Проверка, что идентификаторы совпадают
-        if (existingTest.getId() == id) {
+        if (existingTest.getQuestion().containsKey(id)) {
             // Обновление полей с переданным объектом test
             existingTest.setQuestion(test.getQuestion());
             // Запись обновленного объекта в JSON-файл
@@ -52,7 +52,7 @@ public class TestRepoImpl implements TestRepo {
 
         // Поиск объекта с переданным идентификатором и удаление из массива
         for (int i = 0; i < tests.length; i++) {
-            if (tests[i].getId() == id) {
+            if (tests[i].getQuestion().containsKey(id)) {
                 // Сдвигаем элементы массива для удаления
                 System.arraycopy(tests, i + 1, tests, i, tests.length - 1 - i);
 

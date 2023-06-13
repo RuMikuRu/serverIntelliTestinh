@@ -3,18 +3,14 @@ package com.example.serverIntelliTestinh.model.test;
 import java.util.HashMap;
 
 public class Test {
-    private int id;
-    private HashMap<String, Question> question;
+    private HashMap<Integer, Question> question;
 
-    public HashMap<String, Question> getQuestion() {
+    public HashMap<Integer, Question> getQuestion() {
         return question;
     }
 
-    public void setQuestion(HashMap<String, Question> question) {
+    public void setQuestion(HashMap<Integer, Question> question) {
         this.question = question;
     }
 
-    public int getId() {
-        return this.id;
-    }
 }

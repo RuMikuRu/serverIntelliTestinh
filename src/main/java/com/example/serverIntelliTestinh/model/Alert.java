@@ -4,6 +4,7 @@ public class Alert {
     private int id;
     private String description;
 
+    public Alert(){}
 
     public Alert(int id, String description) {
         this.id = id;
