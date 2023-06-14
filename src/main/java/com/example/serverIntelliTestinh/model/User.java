@@ -57,6 +57,25 @@ public class User {
         this.testIdToGrade = testIdToGrade;
     }
 
+    public void setAllNull()
+    {
+        this.login = null;
+        this.password = null;
+        this.firstName = null;
+        this.lastName = null;
+        this.patronymic = null;
+        this.birthday = null;
+        this.group = -1;
+        this.secretQuestion = null;
+        this.answerOnQuestion = null;
+        this.email = null;
+        this.numberPhone = null;
+        //this.icon = icon;
+        this.countItogTest = 0;
+        this.isBlocked = false;
+        //this.role = Role.USER;
+    }
+
     public void addCountTest()
     {
         this.countItogTest++;

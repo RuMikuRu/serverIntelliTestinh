@@ -47,4 +47,9 @@ public class UserController {
     public ResponseEntity<List<User>> getAll() throws FileNotFoundException, JsonProcessingException {
         return ResponseEntity.ok(List.of(service.getAll()));
     }
+
+    @DeleteMapping(value = "/delete", params = {"login"})
+    public void delete(@RequestParam("login") String login) throws IOException {
+        service.delete(login);
+    }
 }

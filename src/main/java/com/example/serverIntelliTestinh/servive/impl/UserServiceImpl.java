@@ -60,4 +60,12 @@ public class UserServiceImpl implements UserService {
         user.setBlocked(isBlocked);
         repo.update(user, login);
     }
+
+    @Override
+    public void delete(String login) throws IOException {
+        UserRepo repo = new UserRepoImpl();
+        User user = repo.searchByLogin(login);
+        user.setAllNull();
+        repo.update(user, login);
+    }
 }

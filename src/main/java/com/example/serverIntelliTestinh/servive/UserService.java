@@ -17,4 +17,6 @@ public interface UserService {
     User[] getAll() throws FileNotFoundException, JsonProcessingException;
 
     void isBlocked(String login, boolean isBlocked) throws IOException;
+
+    void delete(String login) throws IOException;
 }
