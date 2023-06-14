@@ -19,13 +19,13 @@ public class User {
     private String answerOnQuestion;
     private String email;
     private String numberPhone;
-    //private String icon;
-    //private Role role;
     private int countItogTest;
 
     private boolean isBlocked;
 
-    HashMap<Integer, Integer> testIdToGrade;
+    private HashMap<Integer, Integer> testIdToGrade;
+
+    private String role;
 
     public User(String login, String password, String firstName, String lastName, String patronymic, String birthday, int group, String secretQuestion, String answerOnQuestion, String email, String numberPhone) {
         this.login = login;
@@ -55,6 +55,14 @@ public class User {
 
     public void setGradeToTestId(HashMap<Integer, Integer> testIdToGrade) {
         this.testIdToGrade = testIdToGrade;
+    }
+
+    public void setRole(String role){
+        this.role = role;
+    }
+
+    public String getRole(){
+        return this.role;
     }
 
     public void setAllNull()

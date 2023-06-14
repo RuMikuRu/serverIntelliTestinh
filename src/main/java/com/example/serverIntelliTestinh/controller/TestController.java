@@ -35,7 +35,7 @@ public class TestController {
     }
 
     @RequestMapping(path = "/all",method = RequestMethod.GET)
-    public ResponseEntity<Test> getAll() throws FileNotFoundException, JsonProcessingException {
+    public ResponseEntity<Test[]> getAll() throws FileNotFoundException, JsonProcessingException {
         return ResponseEntity.ok(service.getAll());
     }
 }

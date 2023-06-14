@@ -1,6 +1,5 @@
 package com.example.serverIntelliTestinh.repo.repoImpl;
 
-import com.example.serverIntelliTestinh.model.User;
 import com.example.serverIntelliTestinh.model.test.Test;
 import com.example.serverIntelliTestinh.repo.TestRepo;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -35,7 +34,7 @@ public class TestRepoImpl implements TestRepo {
         Test existingTest = mapper.readValue(new File(this.db), Test.class);
 
         // Проверка, что идентификаторы совпадают
-        if (existingTest.getQuestion().containsKey(id)) {
+        if (existingTest.getId()==id) {
             // Обновление полей с переданным объектом test
             existingTest.setQuestion(test.getQuestion());
             // Запись обновленного объекта в JSON-файл
@@ -52,7 +51,7 @@ public class TestRepoImpl implements TestRepo {
 
         // Поиск объекта с переданным идентификатором и удаление из массива
         for (int i = 0; i < tests.length; i++) {
-            if (tests[i].getQuestion().containsKey(id)) {
+            if (tests[i].getId() == id) {
                 // Сдвигаем элементы массива для удаления
                 System.arraycopy(tests, i + 1, tests, i, tests.length - 1 - i);
 
@@ -70,10 +69,10 @@ public class TestRepoImpl implements TestRepo {
     }
 
     @Override
-    public Test getAll() throws FileNotFoundException, JsonProcessingException {
+    public Test[] getAll() throws FileNotFoundException, JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         String db = new BufferedReader(new FileReader(this.db)).lines().collect(Collectors.joining());
-        Test test = mapper.readValue(db,Test.class);
+        Test[] test = mapper.readValue(db, Test[].class);
         return test;
     }
 }

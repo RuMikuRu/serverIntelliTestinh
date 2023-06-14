@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
 
 @Service
 public class TestServiceImpl implements TestService {
@@ -32,7 +31,7 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
-    public Test getAll() throws FileNotFoundException, JsonProcessingException {
+    public Test[] getAll() throws FileNotFoundException, JsonProcessingException {
         TestRepo repo = new TestRepoImpl();
         return repo.getAll();
     }
