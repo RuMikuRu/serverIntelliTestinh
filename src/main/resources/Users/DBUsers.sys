@@ -1,22 +1,41 @@
-{
-  "id": 1,
-  "question": "What is the capital of France?",
-  "answer": [
-    "London",
-    "Paris",
-    "Berlin",
-    "Madrid"
-  ],
-  "idTrueAnswer": 1
-}
-{
-  "id": 2,
-  "question": "What is the largest ocean in the world?",
-  "answer": [
-    "Atlantic",
-    "Indian",
-    "Pacific",
-    "Arctic"
-  ],
-  "idTrueAnswer": 2
-}
+[ {
+  "login" : "sdasda",
+  "password" : "sdfdrfdfd",
+  "firstName" : "sdgfdgd",
+  "lastName" : "sdfddfsfs",
+  "patronymic" : "dfsdfs",
+  "birthday" : "fsdfsd",
+  "group" : 2,
+  "secretQuestion" : "fdfsdf",
+  "answerOnQuestion" : "sdfsfsfs",
+  "email" : "fdsfsfs",
+  "numberPhone" : "sdfsdfsd",
+  "countItogTest" : 0,
+  "blocked" : false,
+  "gradeToTestId": {
+      "1": 100,
+      "2": 95,
+      "3": 80
+    },
+    "role":"user"
+}, {
+  "login" : "admin",
+  "password" : "root",
+  "firstName" : "iliya",
+  "lastName" : "orlov",
+  "patronymic" : "VLAD",
+  "birthday" : "04.07.2002",
+  "group" : 2,
+  "secretQuestion" : "123",
+  "answerOnQuestion" : "321",
+  "email" : "bkmz.or32@gmail.com",
+  "numberPhone" : "+79964242485",
+  "countItogTest" : 0,
+  "blocked" : false,
+  "gradeToTestId": {
+      "1": 100,
+      "2": 95,
+      "3": 80
+    },
+    "role":"admin"
+} ]
