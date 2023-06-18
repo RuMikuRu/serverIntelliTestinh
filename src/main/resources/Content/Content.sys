@@ -7,7 +7,8 @@
     "Berlin",
     "Madrid"
   ],
-  "idTrueAnswer": 1
+  "idTrueAnswer": 1,
+  "testGroup": "world"
 },
 {
   "id": 2,
@@ -18,6 +19,7 @@
     "Pacific",
     "Arctic"
   ],
-  "idTrueAnswer": 2
+  "idTrueAnswer": 2,
+  "testGroup":"world"
 }
 ]
