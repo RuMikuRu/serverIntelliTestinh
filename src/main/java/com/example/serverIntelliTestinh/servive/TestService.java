@@ -14,4 +14,6 @@ public interface TestService {
     void delete(int id) throws IOException;
 
     Test[] getAll() throws FileNotFoundException, JsonProcessingException;
+
+    void importTest(Test[] tests);
 }
